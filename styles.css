@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f8e1e8; /* Fondo rosa claro */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-image: linear-gradient(to bottom right, #f8e1e8, #e6c3d3);
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    text-align: center;
+    min-height: 80vh;
+}
+
+.screen.active {
+    display: flex;
+}
+
+h1 {
+    color: #e83e8c;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: #e83e8c;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.btn {
+    background-color: #e83e8c;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(232, 62, 140, 0.3);
+}
+
+.btn:hover {
+    background-color: #d81b7a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(232, 62, 140, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(232, 62, 140, 0.3);
+}
+
+/* Pantalla de bienvenida */
+.heart-animation {
+    width: 150px;
+    height: 150px;
+    background-image: url('images/animacion_agus.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 20px 0;
+}
+
+/* Pantalla de juego */
+.game-header {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #666;
+}
+
+#puzzle-container {
+    width: 100%;
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px;
+    margin: 20px 0;
+    position: relative;
+    border: 3px solid #e83e8c;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.puzzle-piece {
+    background-size: 300% 300%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.puzzle-piece:hover {
+    transform: scale(0.98);
+}
+
+.puzzle-piece.empty {
+    background-color: #f8e1e8;
+    cursor: default;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Pantalla de éxito */
+.success-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px 0;
+    border: 5px solid #e83e8c;
+    box-shadow: 0 5px 15px rgba(232, 62, 140, 0.3);
+}
+
+.success-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.love-message {
+    font-size: 1.5rem;
+    color: #e83e8c;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.heart-animation {
+    animation: pulse 1.5s infinite;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+}
